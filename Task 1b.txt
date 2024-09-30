@@ -1,0 +1,193 @@
+/*Task 1b - Write a program that implements parameterized constructor.
+
+
+Problem Description - 
+
+Create a class named ParamConstructor. The class should have two fields
+Student Id and Student Name.Create two constructors one default 
+constructor set some default vlaues of your choice. The parameterized
+constructor should be defined such that it takes the values of Student ID
+and Student Name based on user input.
+
+Methods to display the student details - 
+
+Create method showDetails1() to display the information passed through 
+default constructor.
+
+Create method showDetails2() to display the information passed through parameterized
+constructor.
+
+
+Main Method  - 
+
+Create object of the ParamConstructor class and invoke methods to display the student details.
+
+Input Format  - 
+The first line of input should consist an integer for Student ID 
+The second line of input should consist of String for Student's name.
+
+Output Format - 
+The output should display the student details as passed by the default constructor and the parameterized constructor
+
+Note - 
+The name of the student can consist of three parts First Name , Middle Name, Last Name.
+In such cases all those three parts of the name shold be displayed separately.
+
+Sample test case - 
+-----------------
+Input  = 300
+John Michael Doe
+
+Output = 
+The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+
+Sid: 300
+Name of the Student is:
+firstname: John
+middlename: Michael
+lastname: Doe
+
+
+input=500
+Akash
+output=
+The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 500
+Name of the Student is:
+firstname: Akash
+
+*/
+
+
+// Test Cases
+
+case =t1
+input=200
+Alice john derv
+output=
+The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 200
+Name of the Student is:
+firstname: Alice
+middlename: john
+lastname: derv
+
+case = t2
+fail message="hidden"
+input= 300
+John Michael Doe
+output= The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 300
+Name of the Student is:
+firstname: John
+middlename: Michael
+lastname: Doe
+
+case=t3
+fail message="hidden"
+input=300
+Ashok
+output=The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 300
+Name of the Student is:
+firstname: Ashok
+
+case=t4
+fail message="hidden"
+input=202
+Alice
+output=
+The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 202
+Name of the Student is:
+firstname: Alice
+
+case=t5
+fail message="hidden"
+input=303
+Michael Jeffrey Jordan
+output=
+The Default value of the student is:
+Sid: 125
+Sname: Sindhu
+Sid: 303
+Name of the Student is:
+firstname: Michael
+middlename: Jeffrey
+lastname: Jordan
+
+
+// Write your code from the next line 
+
+import java.util.Scanner;
+
+class ParamConstructor {
+    int Sid;
+    String Sname;
+
+
+    ParamConstructor() {
+        Sid = 125;
+        Sname = "Sindhu";
+    }
+
+    ParamConstructor(int x, String n) {
+        Sid = x;
+        Sname = n;
+    }
+    
+    void showDetails1() {
+        System.out.println("The Default value of the student is:");
+        System.out.println("Sid: " + Sid);
+        System.out.println("Sname: " + Sname);
+    }
+
+
+    void showDetails2() {
+        System.out.println("Sid: " + Sid);
+        String[] arr = Sname.split(" ");
+             System.out.println("Name of the Student is:");
+        if (arr.length==1){
+            System.out.println("firstname: " + arr[0]);
+        }
+        else if (arr.length == 2) {
+            System.out.println("firstname: " + arr[0]);
+            System.out.println("middlename: " + arr[1]);
+        }
+        else if (arr.length == 3) {
+            System.out.println("firstname: " + arr[0]);
+            System.out.println("middlename: " + arr[1]);
+            System.out.println("lastname: " + arr[2]);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        ParamConstructor p = new ParamConstructor();
+        Scanner obj = new Scanner(System.in);
+
+        int x = obj.nextInt();
+          obj.nextLine(); 
+        String y = obj.nextLine();
+
+        ParamConstructor p2 = new ParamConstructor(x, y);
+
+        p.showDetails1();
+        p2.showDetails2();
+        
+        obj.close();
+    }
+}
+

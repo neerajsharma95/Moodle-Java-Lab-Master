@@ -1,0 +1,142 @@
+/* Task 1 Additional Problem 2 - 
+   ------------------------------
+Write an add() function for two integers and overload the function by 
+changing the number of parameters to three integers.
+
+Problem Description:
+--------------------
+
+The first call to the add() method returns the sum of 2 and 3, which is 5.
+The second call to the add() method returns the sum of 4, 5, and 6, which 
+is 15.
+
+Input Format - 
+--------------
+- Ther first line of input reads two integers.
+- The second line of input reads three inegers.
+
+Output Format - 
+---------------
+The output displays the sum of two and three integers respectively in separate lines. 
+Refer to the sample input and output format specification.
+
+Sample Test Case - 
+-----------------
+Input
+------
+2 3
+4 5 6
+
+Output
+-------
+5
+15
+
+Input
+------
+0
+3
+4
+5
+6
+Output
+-------
+3
+15
+
+*/
+
+// Test Cases
+
+case=t1
+input=4 5
+1 2 3
+output=
+9
+6
+
+case=t2
+fail message="hidden"
+input=0
+3
+4
+5
+6
+output=
+3
+15
+
+case=t3
+fail message="hidden"
+input=-2 3
+-1 2 5
+output=
+1
+6
+
+case=t4
+fail message="hidden"
+input=-5
+-10
+-1
+-2
+-3
+output=
+-15
+-6
+
+case=t5
+fail message="hidden"
+input=7
+-3
+-4
+8
+1
+output=
+4
+5
+
+// Start writing your code from next line 
+
+import java.util.Scanner;
+
+public class AddOverload {
+
+    
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    
+    public static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        
+        //System.out.println("Enter two integers to add:");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        
+
+        // Read three integers from user input and add them
+        
+        //System.out.println("Enter three integers to add:");
+        int num3 = scanner.nextInt();
+        int num4 = scanner.nextInt();
+        int num5 = scanner.nextInt();
+        
+        int result1 = add(num1, num2);
+        System.out.println(result1);
+        int result2 = add(num3, num4, num5);
+        System.out.println(result2);
+
+        
+        scanner.close();
+    }
+}
+ 

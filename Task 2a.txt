@@ -1,0 +1,91 @@
+/*Write a Java program that checks whether a given string is a palindrome or not.
+
+input format:
+----------------
+Read the input as a string (may contain alphanumeric,special charcters)
+
+output format:
+---------------
+Refer the given test cases for exact output. (case sensitive)
+
+Sample test cases:
+------------------
+input=MADAM
+output=string MADAM is palindrome
+
+input=12321
+output=string 12321 is palindrome
+
+input=#@22@#
+output=string #@22@# is palindrome
+
+input=mam12
+output=string mam12 is not palindrome
+
+*/
+
+// Test Cases
+
+case=t1
+input=wow
+output=string wow is palindrome
+
+case=t2
+input=@##@
+output=string @##@ is palindrome
+
+case=t3
+fail message="hidden"
+input=12321
+output=string 12321 is palindrome
+
+case=t4
+fail message="hidden"
+input=madams
+output=string madams is not palindrome
+
+case=t5
+fail message="hidden"
+input=1231
+output=string 1231 is not palindrome
+
+case=t6
+fail message="hidden"
+input=WOW
+output=string WOW is palindrome
+
+case=t7
+fail message="hidden"
+input=WOw
+output=string Wow is not palindrome
+
+
+// Write your code from the next line 
+
+import java.util.Scanner; 
+public class palindrome 
+{ 
+public static void main(String[] args) 
+{ 
+    Scanner input=new Scanner(System.in); 
+    //System.out.println("Enter the string ");  
+    String s=input.nextLine(); 
+    if(isPalindrome(s)) 
+        System.out.println("String "+s +" is palindrome"); 
+    else 
+        System.out.println("String "+s+" is not palindrome"); 
+} 
+public static boolean isPalindrome(String s1) 
+{ 
+    int low=0; 
+    int high=s1.length()-1; 
+    while(low<high) 
+    { 
+        if(s1.charAt(low)!=s1.charAt(high)) 
+        return false; 
+        low++; 
+        high--; 
+    } 
+    return true; 
+} 
+}

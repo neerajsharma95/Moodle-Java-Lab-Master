@@ -1,0 +1,113 @@
+/*Write a Java program for sorting a given list of names in ascending order.
+
+Input format:
+----------------
+First Line consists of an integer data(Number of names to enter.)
+Second line consists of strings(List of names entered by the user,names may contain alphanumeric,special characters)
+
+Output format:
+---------------
+Sorted list of names with comma(,) separated.
+
+Sample test cases:
+------------------
+input=4
+HerbertSchildt
+Barry
+Ashok
+james
+output=
+Names in Sorted Order:Ashok,Barry,HerbertSchildt,james 
+
+*/
+
+// Test Cases 
+
+case=t1
+input=3
+sai
+anirudh
+poojith
+output="Names in Sorted Order:anirudh,poojith,sai"
+
+case=t2
+fail message="hidden"
+input=4
+#anju
+arun
+kittu
+omkar
+output="Names in Sorted Order:#anju,arun,kittu,omkar"
+
+case=t3
+fail message="hidden"
+input=5
+_madhu
+12ashoka
+ashok
+#siri
+hitansh
+output=Names in Sorted Order:#siri,12ashoka,_madhu,ashok,hitansh
+
+case=t4
+fail message="hidden"
+input=4
+123
+987
+0192
+738h
+output=Names in Sorted Order:0192,123,738h,987
+
+case=t5
+fail message="hidden"
+input=5
+cse
+it
+ece
+aiml
+csbs
+output=Names in Sorted Order:aiml,csbs,cse,ece,it
+
+
+// Write code from next line 
+
+import java.util.Scanner;
+public class sort
+{
+    public static void main(String[] args) 
+    {
+        int n;
+        String temp;
+        Scanner s = new Scanner(System.in);
+       // System.out.print("Enter number of names you want to enter:");
+        n = s.nextInt();
+        s.nextLine();
+        String names[] = new String[n];
+       
+        for(int i = 0; i < n; i++)
+        {
+            names[i] = s.nextLine();
+           
+        }
+        
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = i + 1; j < n; j++) 
+            {
+                if (names[i].compareTo(names[j])>0) 
+                {
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+        System.out.print("Names in Sorted Order:");
+        for (int i = 0; i < n - 1; i++) 
+        {
+            System.out.print(names[i] + ",");
+        }
+        System.out.print(names[n - 1]);
+    }
+}
+

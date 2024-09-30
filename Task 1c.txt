@@ -1,0 +1,141 @@
+/*Task 1c - Write a java program to implement method overloading 
+
+Problem Description - 
+--------------------
+Create a class Demo such that the class Contains three definitions of a method display() as follows - 
+
+1. First definition of the method display(char c) should display a single character as given input by the user.
+2. Second definition of the method display(char c, int num) should display a single character and
+an integer as given input by the user.
+3. Third definition of the method display(int num, double d) should display an integer 
+and a double value as given input by the user
+
+Constraints:
+------------------
+Students need to call the display methods of Demo class from MethodOverloading class and print the appropriate messages,
+as per the test cases given below.
+
+Input Format - 
+--------------
+First line of input should consist of a single character input.
+Second line of input should consist of an integer.
+Third line of input should consist of a double value.
+
+Output Format - 
+---------------
+First line of output should display a single character.
+The second line of output should display an integer and a character.
+The third line of output should display and integer and a double.
+
+Sample Test Case - 
+-----------------
+Input - 
+-------
+#
+12
+12.34
+
+Output - 
+-------
+Value of character = #
+Value of character = #
+Value of Integer number = 12
+Value of Integer number = 12
+Value of Floating Number = 12.34
+*/
+
+
+// Test Cases
+
+case=t1
+input=a
+10
+20.5
+output=Value of character = a
+Value of character = a
+Value of Integer number = 10
+Value of Integer number = 10
+Value of Floating Number = 20.5
+
+case=t2
+fail message="hidden"
+input=#
+5
+3.14
+output=
+Value of character = #
+Value of character = #
+Value of Integer number = 5
+Value of Integer number = 5
+Value of Floating Number = 3.14
+
+case=t3
+input=Z
+100
+99.99
+output=
+Value of character = Z
+Value of character = Z
+Value of Integer number = 100
+Value of Integer number = 100
+Value of Floating Number = 99.99
+
+case=t4
+fail message="hidden"
+input=b
+0
+0.0
+output=
+Value of character = b
+Value of character = b
+Value of Integer number = 0
+Value of Integer number = 0
+Value of Floating Number = 0.0
+
+case=t5
+fail message="hidden"
+input=x
+2147483647
+1.7976931348623157E308
+output=
+Value of character = x
+Value of character = x
+Value of Integer number = 2147483647
+Value of Integer number = 2147483647
+Value of Floating Number = 1.7976931348623157E308
+
+
+// Write your code from the next line 
+
+import java.util.Scanner;
+class Demo
+{
+public void display(char c)
+{
+System.out.println("Value of character = "+c);
+}
+public void display(char c, int num)
+{
+System.out.println("Value of character = "+c);
+System.out.println("Value of Integer number = "+num);
+}
+public void display(int num, double d)
+{
+System.out.println("Value of Integer number = "+num);
+System.out.println("Value of Floating Number = "+d);
+}
+}
+class MethodOverloading
+{
+public static void main(String args[])
+{
+Scanner obj = new Scanner(System.in);
+char c = obj.next().charAt(0);
+int number = obj.nextInt();
+double float_number = obj.nextDouble();
+Demo ob = new Demo();
+ob.display(c);
+ob.display(c,number);
+ob.display(number,float_number);
+}
+}

@@ -1,0 +1,151 @@
+/*Task 1d - Write a java program that implements constructor overloading 
+
+Problem Description - 
+--------------------
+Create a class named ConstructorOverloading. That class should have two integer variables.
+Define three constructors in the class as follows - 
+1. The first constructor should be a default constructor that should set the values of the integer variables of the class manually.
+2. The second constructor should be a parameterized constructor with a single integer parameter, 
+   the constructor itself should print the value.
+3. The third constructor should be a parameterized constructor with a String parameter.
+4. The fourth constructor should be a parameterized constructor with two parameters such that one is integer and another is double.
+
+
+Input Format - 
+--------------
+Ther first line of input should consist of an integer.
+The second line of input should consist of a String. Note that the string can be either single word or multi word.
+The third line of input should consist of a double value.
+
+Output Format - 
+---------------
+The first line should display the values of the class variables as set by the default constructor.
+The subsequent lines should display the outputs based on the different parameterized constructors.
+
+
+Sample Test Case - 
+-----------------
+Input = 
+--------
+10
+Hello World !
+3.14
+
+Output =
+--------
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 10
+Inside single parameter constructor with String object
+String Value = Hello World !
+Inside double parameter constructor value of p = 10 and k = 3.14
+
+*/
+
+// Test Cases
+
+case=t1
+input=5
+Hello World
+12.34
+output=
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 5
+Inside single parameter constructor with String object
+String Value = Hello World
+Inside double parameter constructor value of p = 5 and k = 12.34
+
+case=t2
+fail message="Hidden"
+input=20
+Programming in Java
+45.67
+output=
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 20
+Inside single parameter constructor with String object
+String Value = Programming in Java
+Inside double parameter constructor value of p = 20 and k = 45.67
+
+case=t3
+fail message="Hidden"
+input=42
+Testing
+89.1
+output=
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 42
+Inside single parameter constructor with String object
+String Value = Testing
+Inside double parameter constructor value of p = 42 and k = 89.1
+    
+case=t4
+fail message="hidden"
+input=10
+Hello
+20.5
+output=
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 10
+Inside single parameter constructor with String object
+String Value = Hello
+Inside double parameter constructor value of p = 10 and k = 20.5
+
+case=t5
+fail message="hidden"
+input=100
+Java
+99.99
+output=
+Inside default constructor
+Value of i: 100 and j: 200
+Inside single parameter constructor with int value = 100
+Inside single parameter constructor with String object
+String Value = Java
+Inside double parameter constructor value of p = 100 and k = 99.99
+
+// Write your code from the next line 
+
+import java.util.Scanner; 
+class ConstructorOverloading {
+    int i, j;
+
+    
+    public ConstructorOverloading() {
+        i = 100;
+        j = 200;
+        System.out.println("Inside default constructor");
+        System.out.println("Value of i: " + i + " and j: " + j);
+    }
+
+    public ConstructorOverloading(int q) {
+        System.out.println("Inside single parameter constructor with int value = " + q);
+    }
+
+    public ConstructorOverloading(String str) {
+        System.out.println("Inside single parameter constructor with String object");
+        System.out.println("String Value = " + str);
+    }
+
+    public ConstructorOverloading(int p, double k) {
+        System.out.println("Inside double parameter constructor value of p = " + p + " and k = " + k);
+    }
+
+
+    public static void main(String args[]) {
+        Scanner ob = new Scanner(System.in);
+        int x = ob.nextInt();
+        ob.nextLine();
+        String str = ob.nextLine();
+        double y = ob.nextDouble();
+        ConstructorOverloading ob1 = new ConstructorOverloading();         
+        ConstructorOverloading ob2 = new ConstructorOverloading(x);     
+        ConstructorOverloading ob3 = new ConstructorOverloading(str); 
+        ConstructorOverloading ob4 = new ConstructorOverloading(x, y); 
+    }
+}
+

@@ -1,0 +1,109 @@
+/*Given two strings a and b, return a new string, following the rules given below. 
+
+If string b occurs in string a, then the new string should concatenate the characters that appear before 
+and after of String b.
+Ignore cases where there is no character before or after the word, 
+and a character may be included twice if it is in between two string b's.
+
+Input Format:
+--------------
+Prompt the user to enter str1 and str2 interactively.
+
+Output Format:
+--------------
+Print the constructed string that contains characters adjacent to each occurrence of str2 in str1.
+
+Sample test cases:
+-------------
+case=t1
+input:abcXY123XYijk
+XY
+outpur:c13i
+
+case=t2
+input:XY123XY
+XY
+output:13
+
+case=t3
+input:XY1XY
+XY
+output:11
+*/
+
+// Test Case
+
+case=t1
+input=abcXY123XYijk
+XY
+output=c13i
+
+case=t2
+fail message="hidden"
+input=XY123XY
+XY
+output=13
+
+case=t3
+fail message="hidden"
+input=XY1XY
+XY
+output=11
+
+case=t4
+fail message="hidden"
+input=welcomegriet
+eg
+output=mr
+
+case=t5
+fail message="hidden"
+input=welcomecome
+co
+output=lmem
+
+
+// Write your code from the next line 
+
+
+import java.util.Scanner;
+
+public class stringExample {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+	  
+		String str1 = scan.nextLine();
+		
+		String str2 = scan.nextLine();
+		
+		String outStr = "";
+		
+		while (str1.indexOf(str2)!= -1) {	
+			int index = str1.indexOf(str2);
+			
+			if (index == 0 && index + str2.length() < str1.length() - 1) {
+				outStr += (str1.charAt(index + str2.length()));
+				str1 = str1.replaceFirst(str2, "");
+				continue;
+			}
+			
+			if (index - 1 >= 0 && index + str2.length() >= str1.length()) {
+				outStr += (str1.charAt(index - 1));
+				str1 = str1.replaceFirst(str2, "");
+				continue;
+			}
+			
+			if (index + str2.length() < str1.length() - 1 && index - 1 >= 0) {
+				outStr += (str1.charAt(index - 1));
+				outStr += (str1.charAt(index + str2.length()));
+				str1 = str1.replaceFirst(str2, "");
+			}
+		}
+
+		System.out.println(outStr);
+	}
+
+}
+

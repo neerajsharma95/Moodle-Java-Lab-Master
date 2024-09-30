@@ -1,0 +1,146 @@
+/*Task 1 Additional Problem 3- 
+
+Write a program that calculates the area of a rectangle and the area of a circle 
+using method overloading. The program should prompt the user for the necessary 
+inputs and then display the calculated areas.
+
+Problem Description - 
+--------------------
+Write a function area() for calculating the area of rectangle by passing the length and 
+width of rectangle as input and overload that function to calculate the area of 
+circle by passing the radius of circle as parameter.
+
+Input Format - 
+--------------
+The first line of input should read an integer value for length of rectangle.
+The second line of input should read an integer value for width of rectangle.
+The third line of input should read a double value for the radius of circle.
+
+Output Format - 
+---------------
+The output should display the values for area of rectangle and area of circle.
+
+Constraints - 
+------------
+The input consists only non-negative values 
+
+Sample Test Case - 
+-----------------
+Input = 
+------
+12
+14
+3.5
+
+Output=
+-------
+Area of the rectangle: 168
+Area of the circle: 38.48451000647496
+
+Input = 
+-------
+-1
+0
+0
+Output = 
+------
+Invalid Input
+
+
+
+*/
+
+
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=5
+3
+4.0
+output=Area of the rectangle: 15
+Area of the circle: 50.26548245743669
+
+case=t2
+fail message="hidden"
+input=-1
+0
+0
+output=
+Invalid Input
+
+case=t3
+fail message="hidden"
+input=1
+1
+2.0
+output=
+Area of the rectangle: 1
+Area of the circle: 12.566370614359172
+
+case=t4
+fail message="hidden"
+input=1000
+2000
+1.5
+output=
+Area of the rectangle: 2000000
+Area of the circle: 7.0685834705770345
+
+case=t5
+fail message="hidden"
+input=7
+8
+3.5
+output=
+Area of the rectangle: 56
+Area of the circle: 38.48451000647496 
+
+// Start writing your code from next line 
+
+import java.util.Scanner;
+
+public class Overloading {
+
+    
+    public static int area(int length, int width) {
+        return length * width;
+    }
+
+    
+    public static double area(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        //System.out.println("Enter the length of the rectangle:");
+        
+        int length = scanner.nextInt();
+        
+        //System.out.println("Enter the width of the rectangle:");
+        
+        int width = scanner.nextInt();
+        
+       
+        
+        //System.out.println("Enter the radius of the circle:");
+        double radius = scanner.nextDouble();
+        if(length<=0||width<=0||radius<=0){
+            System.out.println("Invalid Input");
+        }
+        else{
+         int rectangleArea = area(length, width);
+         double circleArea = area(radius);
+
+        
+        System.out.println("Area of the rectangle: " + rectangleArea);
+        System.out.println("Area of the circle: " + circleArea);
+        }
+    
+        scanner.close();
+    }
+}

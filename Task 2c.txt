@@ -1,0 +1,114 @@
+/*Write a Java Program that reads a line of integers, and display total number of tokens, 
+then display each integer and the sum of all the integers (Use StringTokenizer class of java.util)
+
+Input format:
+----------------
+Read a line of integers where each integer is separated by spaces
+
+Output format:
+---------------
+Total number of tokens (numbers) entered.
+Each integer
+Sum of the numbers.
+
+constraint:
+-------------
+
+display integer values with spaces, if non integer value is encountered, print the following message and terminate the program:
+
+"non integer is encountered. terminated."
+
+sum of tokens to be printed only if all tokens are integers.
+
+
+Sample test cases:
+------------------
+input=1 2 3 4 5
+output=Total Number of tokens:5
+1 2 3 4 5 
+Sum of tokens :15
+
+
+input=4 h 2
+output=
+Total Number of tokens:3
+4 
+non integer is encountered. terminated.
+*/
+
+// Test Cases
+
+case=t1
+input=1 2 3 4 5
+output=Total Number of tokens:5
+1 2 3 4 5 
+Sum of tokens :15
+
+case=t2
+fail message="hidden"
+input=s 4 6 h
+output=
+Total Number of tokens:4
+non integer is encountered. terminated.
+
+case=t3
+fail message="hidden"
+input=4 h 2
+output=
+Total Number of tokens:3
+4 
+non integer is encountered. terminated.
+
+
+case=t4
+fail message="hidden"
+input=-2 12 +89
+output=
+Total Number of tokens:3
+-2 12 89 
+Sum of tokens :99
+
+
+case=t5
+fail message="hidden"
+input=-2 -3 78 j
+output=
+Total Number of tokens:4
+-2 -3 78 
+non integer is encountered. terminated.
+
+// Write your code from the next line 
+
+import java.util.*;
+import java.util.Scanner;
+class token
+{ 
+    public static void main(String[] args) 
+    { 
+        String temp; int k,total=0;
+        Scanner input=new Scanner(System.in);
+        //System.out.println("Enter the Numbers : "); 
+        String sentence=input.nextLine(); 
+     
+        StringTokenizer s1=new StringTokenizer(sentence);
+        System.out.println("Total Number of tokens:"+s1.countTokens()); 
+        while(s1.hasMoreTokens()) 
+        { 
+            temp=s1.nextToken();   
+            try{
+            k=Integer.parseInt(temp);
+            System.out.print(k+" ");
+            total=total+k;
+            }
+            catch(NumberFormatException e)
+            {
+                System.out.println();
+                System.out.println("non integer is encountered. terminated.");
+                return;
+            }
+    
+        } 
+        System.out.println();
+        System.out.println("Sum of tokens :"+total); 
+    } 
+} 

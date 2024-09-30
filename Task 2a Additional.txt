@@ -1,0 +1,70 @@
+/*Write a java program that will return the first half of the string, if the length of the string is even.
+ It should return null for odd length string.
+
+Input format:
+-------------- 
+Prompts the user to enter a string. 
+The program should determine if the length of the string is even or odd:
+If the length of the string is even, the program should print the first half of the string.
+If the length of the string is odd, the program should print "null".
+
+Output format:
+---------------
+Refer the given test cases for exact output.
+
+Sample Testcases
+-----------------
+input=TomCat
+output=Tom
+*/
+
+// Test Cases
+
+case=t1
+input=griets
+output=gri
+
+case=t2
+fail message="hidden"
+input=griet
+output=null
+
+case=t3
+fail message="hidden"
+input=4567
+output=45
+
+case=t4
+fail message="hidden"
+input=456
+output=null
+
+case=t5
+fail message="hidden"
+input=@45fgh
+output=@45
+
+// write your code from the next line 
+
+import java.util.Scanner;
+
+public class evenHalfString {
+	
+	static String firstHalfString(String str) {
+		if(str.length() % 2 == 0)
+			return str.substring(0, str.length()/2);
+		else 
+			return "null";
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter the string: ");
+		String str = scan.nextLine();
+		
+		System.out.println(firstHalfString(str));
+	}
+
+}

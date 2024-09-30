@@ -1,0 +1,73 @@
+/*
+Task 1a: Create a Java program that demonstrates the use of a default constructor in a class.
+
+Problem Description:
+---------------------------
+Create the class "DefaultConstructor" and it should have the following specifications:
+
+1.	Attributes:
+	    int college_id - to store the college_id of the students.
+	    String college_name - to store name of the college.
+	    String city - to store the name of the city. 
+
+        the constructor should set the attribute values.
+        
+2.	Method:
+    	void showDetails() - This method should print the values of Sid and Sname.
+
+3.	Main Method:
+    	In the main method, create an object of the DefaultConstructor class.
+	    Call the showDetails() method using the created object to display the initialized values.
+
+Input format:
+---------------
+no need to read any input.
+
+Output format:
+----------------
+output format as mentioned in the test case below (output is case sensitive)
+
+Sample test cases:
+-----------------------
+input=
+output=
+College ID:846
+College Name:GRIET
+City:Hyderabad
+
+
+
+*/
+// Test Cases 
+
+case=t1
+input=
+output=
+"College ID:846
+College Name:GRIET
+City:Hyderabad"
+
+
+//Write your code from the next line
+
+class DefaultConstructor
+{
+    int college_id;
+    String college_name;
+    String city;
+    
+    DefaultConstructor(){
+    college_id=846;
+    college_name="GRIET";
+    city = "Hyderabad";
+    }
+    void showDetails(){
+    System.out.println("College ID:"+college_id+"\nCollege Name:"+college_name+"\nCity:"+city);
+    }
+    
+public static void main(String[] args){
+    DefaultConstructor object = new DefaultConstructor();
+    object.showDetails();
+    }
+}
+
