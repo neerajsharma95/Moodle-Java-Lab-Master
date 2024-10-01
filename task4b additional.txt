@@ -1,0 +1,157 @@
+/*
+Task 4 Additional Problem 2 
+----------------------------
+Create a Java program by defining a base class called "Vehicle" with 
+attributes numberOfWheels and speed as integers. Then, create a derived 
+class called "Car" that extends the "Vehicle"  class with an additional 
+attribute called fuelCapacity as an integer. 
+
+Input format:
+---------------
+The input consists of three integers representing the number of wheels, 
+speed of the vehicle, and fuel capacity.
+
+Output format:
+----------------
+Display the number of wheels, speed of the vehicle, and fuel capacity.
+
+Sample test cases:
+-----------------------
+Input - 
+-------
+4
+60
+34
+
+Output - 
+-------
+Car Details:
+Number of Wheels: 4
+Speed: 60
+Fuel Capacity: 34
+
+
+*/
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=4
+120
+50
+output=
+Car Details:
+Number of Wheels: 4
+Speed: 120
+Fuel Capacity: 50
+
+case=t2
+fail message="hidden"
+input=2
+80
+15
+output=
+Car Details:
+Number of Wheels: 2
+Speed: 80
+Fuel Capacity: 15
+
+case=t3
+fail message="hidden"
+input=6
+100
+200
+output=
+Car Details:
+Number of Wheels: 6
+Speed: 100
+Fuel Capacity: 200
+
+case=t4
+fail message="hidden"
+input=8
+60
+500
+output=
+Car Details:
+Number of Wheels: 8
+Speed: 60
+Fuel Capacity: 500
+
+case=t5
+fail message="hidden"
+input=10
+200
+1000
+output=
+Car Details:
+Number of Wheels: 10
+Speed: 200
+Fuel Capacity: 1000
+
+// Source Code 
+
+import java.util.Scanner;
+class Vehicle {
+    private int numberOfWheels;
+    private int speed;
+
+    public Vehicle(int numberOfWheels, int speed) {
+        this.numberOfWheels = numberOfWheels;
+        this.speed = speed;
+    }
+
+    public int getNumberOfWheels() {
+        return numberOfWheels;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    @Override
+    public String toString() {
+        return "Number of Wheels: " + numberOfWheels + "\nSpeed: " + speed;
+    }
+}
+
+class Car extends Vehicle {
+    private int fuelCapacity;
+
+    public Car(int numberOfWheels, int speed, int fuelCapacity) {
+        super(numberOfWheels, speed);
+        this.fuelCapacity = fuelCapacity;
+    }
+
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nFuel Capacity: " + fuelCapacity;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+         // System.out.print("Enter the number of wheels: ");
+        int numberOfWheels = scanner.nextInt();
+
+        //System.out.print("Enter the speed of the vehicle: ");
+        int speed = scanner.nextInt();
+
+        //System.out.print("Enter the fuel capacity: ");
+        int fuelCapacity = scanner.nextInt();
+
+        Car car = new Car(numberOfWheels, speed, fuelCapacity);
+
+        System.out.println("\nCar Details:");
+        System.out.println(car.toString());
+
+        scanner.close();
+    }
+}
+

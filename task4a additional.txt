@@ -1,0 +1,204 @@
+/*
+Task 4  Additional Problem 1
+------------------------------
+As a library manager, you need to maintain the details of the books in your 
+library. You want to create a Java program to store both general and 
+specific details about each book.
+
+Problem Description - 
+--------------------
+create a Book class that defines common attributes of a book, a 
+LibraryBook class that extends the Book class and adds additional details 
+specific to library management, and a Main class that contains the main() 
+method. This method will prompt the user to input the details of a new book, 
+create a new LibraryBook object with those details, and display the details of 
+that book.
+
+
+
+Input format:
+---------------
+- The first line of the input is a string representing the book's title.
+- The second line of the input is an integer value representing the year of 
+publication.
+- The third line of the input is a string representing the ISBN number.
+- The fourth line of the input is a double value representing the book's 
+price.
+
+
+Output format:
+----------------
+-The output prints a formatted string containing the book's title, year of 
+publication, ISBN number, and price.
+
+Constraints
+------------
+- The title string must contain only alphabetical characters, spaces, and 
+dashes.
+- The ISBN string must contain only alphanumeric characters and hyphens.
+- The price must be a non-negative value.
+- All input values must be within the specified ranges.
+
+Sample test cases:
+-----------------------
+Input - 
+-------
+Harry Potter
+2002
+123-234-536
+23
+
+Output - 
+-------
+Book Details:
+Title: Harry Potter
+Year of Publication: 2002
+ISBN: 123-234-536
+Price: $23.0
+
+
+*/
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=The Great Adventure
+2022
+978-3-16-148410-0
+19.99
+output=
+Book Details:
+Title: The Great Adventure
+Year of Publication: 2022
+ISBN: 978-3-16-148410-0
+Price: $19.99
+
+case=t2
+input=Journey to the Center
+-2020
+978-1-23-456789-7
+25.50
+output=
+Invalid Input. Year of publication must be positive and price must be non-negative.
+
+case=t3
+fail message="hidden"
+input=Mystery of the Stars
+2021
+978-0-12-345678-9
+-15.75
+output=
+Invalid Input. Year of publication must be positive and price must be non-negative.
+
+case=t4
+fail message="hidden"
+input=The Silent Observer
+2022
+978-3-16-148410-0
+0.00
+output=
+Book Details:
+Title: The Silent Observer
+Year of Publication: 2022
+ISBN: 978-3-16-148410-0
+Price: $0.0
+
+case=t5
+fail message="hidden"
+input=A New Dawn
+1992
+123-4-56-789012-3
+100.00
+output=
+Book Details:
+Title: A New Dawn
+Year of Publication: 1992
+ISBN: 123-4-56-789012-3
+Price: $100.0
+
+// Source Code 
+
+import java.util.Scanner;
+
+
+class Book {
+    
+    private String title;
+    private int publicationYear;
+
+    
+    public Book(String title, int publicationYear) {
+        this.title = title;
+        this.publicationYear = publicationYear;
+    }
+
+    
+    public String getTitle() {
+        return title;
+    }
+
+    
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+}
+
+
+class LibraryBook extends Book {
+    private String isbn;
+    private double price;
+
+
+    public LibraryBook(String title, int publicationYear, String isbn, double price) {
+        super(title, publicationYear);
+        this.isbn = isbn;
+        this.price = price;
+    }
+
+    
+    public String getIsbn() {
+        return isbn;
+    }
+
+    
+    public double getPrice() {
+        return price;
+    }
+}
+
+
+public class Main {
+
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //System.out.print("Enter the book's title: ");
+        String title = scanner.nextLine();
+
+        //System.out.print("Enter the year of publication: ");
+        int publicationYear = scanner.nextInt();
+        
+        scanner.nextLine();  
+
+        //System.out.print("Enter the ISBN number: ");
+        String isbn = scanner.nextLine();
+
+        //System.out.print("Enter the price of the book: ");
+        double price = scanner.nextDouble();
+
+        if (publicationYear <= 0 || price < 0) {
+            System.out.println("Invalid Input. Year of publication must be positive and price must be non-negative.");
+        } else {
+            LibraryBook book = new LibraryBook(title, publicationYear, isbn, price);
+
+            System.out.println("\nBook Details:");
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Year of Publication: " + book.getPublicationYear());
+            System.out.println("ISBN: " + book.getIsbn());
+            System.out.println("Price: $" + book.getPrice());
+        }
+
+        scanner.close();
+    }
+}

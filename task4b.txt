@@ -1,0 +1,160 @@
+/* Task 4b. Write a Java program to demonstrate the use of dynamic method 
+
+Problem Description - 
+--------------------
+Create a Base class A with one integer attribute (let) x, and two derived classes B and C. 
+Create constructor in Class A to initialize the value of x and create constructors in B and 
+C such that they update the value of x. B and C should modify the value of x by adding 
+100 and 200 respectively.
+In the main class create the object of all the three classes.
+Create a reference of class A and interchangeably assign the objects of class B and C in 
+the reference of A. Take the value of x (integer parameter of the class) as user input.
+
+Method - 
+--------
+create a method callme() to display the value in the given class.
+
+Input Format - 
+--------------
+The first line of input should read the integer value x for class A.
+The second line of input should read the integer value x for class B.
+The third line of output should read the integer value x for class C.
+
+
+Output Format - 
+----------------
+The output should display the value of x as in the three different classes 
+
+
+Sample Test Cases - 
+----------------------
+Input = 
+-------
+10
+20
+30
+
+Output = 
+-------
+Number in A: 10
+Number in B: 120
+Number in C: 230
+*/
+
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=10
+20
+30
+output=10
+120
+230
+
+case=t2
+fail message="hidden"
+input=5
+15
+25
+output=5
+115
+225
+
+case=t3
+fail message="hidden"
+input=0
+10
+20
+output=0
+110
+220
+
+case=t4
+input=1
+2
+3
+output=1
+102
+203
+
+case=t5
+fail message="hidden"
+input=7
+14
+21
+output=7
+114
+221
+
+// Source Code 
+
+import java.util.Scanner;
+
+class A {
+    int number;
+
+    A(int number) {
+        this.number = number;
+    }
+
+    void callme() {
+        System.out.println("Number in A: " + number);
+    }
+}
+
+class B extends A {
+    B(int number) {
+        super(number); 
+        this.number = 100 + number;
+    }
+
+    @Override
+    void callme() {
+        System.out.println("Number in B: " + number);
+    }
+}
+
+class C extends A {
+    C(int number) {
+        super(number); 
+        this.number = 200 + number;
+    }
+
+    @Override
+    void callme() {
+        System.out.println("Number in C: " + number);
+    }
+}
+
+public class DynamicMethod {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        
+        int num1 = scanner.nextInt();
+       
+        int num2 = scanner.nextInt();
+        
+        int num3 = scanner.nextInt();
+
+        
+        A a = new A(num1); 
+        B b = new B(num2); 
+        C c = new C(num3); 
+        
+        A r; 
+        
+        r = a; 
+        r.callme(); 
+        
+        r = b; 
+        r.callme(); 
+        
+        r = c; 
+        r.callme(); 
+
+        scanner.close();
+    }
+}

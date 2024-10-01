@@ -1,0 +1,136 @@
+/*
+Task 4a: Create a Java program that implements the concept of method overriding.
+
+Problem Description:
+---------------------------
+- Create the class Bank. The class should have a method ROI with return type integer.
+- Extend the Bank class in three different classes with three banks.
+- The ROI() method in the extended classes should return the Rate of interest of 
+the entered bank.
+
+1.	Classes - 
+    --------
+	    There should be 5 classes in the program  - 
+	    (i) Bank the Parent class.
+	    (ii) SBI first child class of Bank.
+	    (iii) ICICI second child class of Bank.
+	    (iv) Axis third child class of Bank.
+	    (v) MethodOverriding class for main() method.
+
+2.	Method:
+
+    	int getROI() - This method should return the rate of interest of specific banks.
+        SBI BANK : 8%
+        ICICI BANK:7%
+        AXIS BANK: 9%
+
+3.	Main Method:
+    	In the main method, create an object of the MethodOverriding class.
+    	Ask the user to enter choice for the bank.
+	    Call the getROI() method using the created object to display the rate of interest values.
+
+Input format:
+---------------
+The input consists of an integer value based on which the choice of interested bank is displayed.
+1 for SBI BANK
+2 for ICICI BANK
+3 for AXIS BANK
+
+for any other input messege should be displayed as "Invalid Input".
+
+Output format:
+----------------
+The output should display the rate of interest of the bank as selected by the user based on the input.
+
+Sample test cases:
+-----------------------
+Input =1
+Output =
+SBI rate of interest=8%
+
+
+*/
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=1
+output=
+SBI rate of interest=8%
+
+case=t2
+fail message="hidden"
+input=2
+output=
+ICICI rate of interest=7%
+
+case=t3
+input=3
+output=
+Axis rate of interest=9%
+
+case=t4
+input=4
+output=
+"Invalid Input"
+
+case=t5
+fail message="hidden"
+input=5
+output=
+"Invalid Input"
+
+// Source Code
+
+import java.util.Scanner;
+
+class Bank {
+    int getROI() {
+        return 0;
+    }
+}
+
+class SBI extends Bank {
+    int getROI() {
+        return 8;
+    }
+}
+
+class ICICI extends Bank {
+    int getROI() {
+        return 7;
+    }
+}
+
+class Axis extends Bank {
+    int getROI() {
+        return 9;
+    }
+}
+
+class MethodOverriding {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        int c = obj.nextInt();
+        if (c >= 1 && c <= 3) {
+            switch (c) {
+                case 1:
+                    SBI s = new SBI();
+                    System.out.println("SBI rate of interest=" + s.getROI() + "%");
+                    break;
+
+                case 2:
+                    ICICI i = new ICICI();
+                    System.out.println("ICICI rate of interest=" + i.getROI() + "%");
+                    break;
+
+                case 3:
+                    Axis a = new Axis();
+                    System.out.println("Axis rate of interest=" + a.getROI() + "%");
+                    break;
+            }
+        } else {
+            System.out.println("Invalid Input");
+        }
+    }
+}

@@ -1,0 +1,181 @@
+/*
+Task 4c: Write a program that implements multiple inheritance.
+
+Problem Description:
+---------------------------
+Create an interface Exam with an abstract method percentage_cal(). 
+Create a class Student with attributes rollno, name, marks1 and marks2 to 
+hold the marks of 2 subjects (out of 100), use a parameterized constructor to set the 
+values of those parameters.
+
+
+2.	Methods:
+----------------
+    	- void percent_cal() - To calculate the percentage based on the 
+    	marks of the two subjects.
+    	- display() - Method to diaplay the details of the student.
+
+
+
+Input format:
+---------------
+       - The first line of input consits of the name of the student to 
+       be read as Strings (the name can constitute of only one word or 
+       multiple words)
+       - The second line of input consists of Roll number read as integer.
+       - The third line of input is read as integer that is marks of one 
+       subject 1.
+       - The fourth line of input is read as integer that is marks 
+       of subject 2.
+
+
+Output format:
+----------------
+       The output should display the information read as input.
+
+Sample test cases:
+-----------------------
+Input- 
+--------
+John Doe
+123
+23
+34
+Output-
+--------
+Name of Student: John Doe
+Roll No. of Student: 123
+Marks of Subject 1: 23
+Marks of Subject 2: 34
+Percentage: 28.5%
+
+
+
+*/
+// Test Cases
+
+case=t1
+input=Alice
+101
+70
+80
+output=
+Name of Student: Alice
+Roll No. of Student: 101
+Marks of Subject 1: 70
+Marks of Subject 2: 80
+Percentage: 75.0%
+
+case=t2
+fail message="hidden"
+input=Bob
+102
+95
+98
+output=
+Name of Student: Bob
+Roll No. of Student: 102
+Marks of Subject 1: 95
+Marks of Subject 2: 98
+Percentage: 96.5%
+
+case=t3
+fail message="hidden"
+input=Charlie Puth
+103
+40
+50
+output=
+Name of Student: Charlie Puth
+Roll No. of Student: 103
+Marks of Subject 1: 40
+Marks of Subject 2: 50
+Percentage: 45.0%
+
+case=t4
+fail message="hidden"
+input=John
+101
+75
+85
+output=Name of Student: John
+Roll No. of Student: 101
+Marks of Subject 1: 75
+Marks of Subject 2: 85
+Percentage: 80.0%
+
+case=t5
+input=Jacob
+102
+96
+90
+output=Name of Student: Jacob
+Roll No. of Student: 102
+Marks of Subject 1: 96
+Marks of Subject 2: 90
+Percentage: 93.0%
+
+
+// Source Code 
+
+import java.util.Scanner;
+
+interface Exam {
+    void percent_cal();
+}
+
+class Student {
+    String name;
+    int roll_no, mark1, mark2;
+
+    Student(String n, int r, int m1, int m2) {
+        name = n;
+        roll_no = r;
+        mark1 = m1;
+        mark2 = m2;
+    }
+
+    void display() {
+        System.out.println("Name of Student: " + name);
+        System.out.println("Roll No. of Student: " + roll_no);
+        System.out.println("Marks of Subject 1: " + mark1);
+        System.out.println("Marks of Subject 2: " + mark2);
+    }
+}
+
+class Result extends Student implements Exam {
+    Result(String n, int r, int m1, int m2) {
+        super(n, r, m1, m2);
+    }
+
+    public void percent_cal() {
+        int total = (mark1 + mark2);
+        float percent = total * 100.0f / 200;
+        System.out.println("Percentage: " + percent + "%");
+    }
+
+    void display() {
+        super.display();
+    }
+}
+
+class MultipleInheritance {
+    public static void main(String args[]) {
+        Scanner obj = new Scanner(System.in);
+        
+        String sname = obj.nextLine();
+        
+        int rollno = obj.nextInt();
+        
+        int m1 = obj.nextInt();
+        
+        int m2 = obj.nextInt();
+
+        Result R = new Result(sname, rollno, m1, m2);
+        R.display();
+        R.percent_cal();
+        
+        obj.close();
+    }
+}
+

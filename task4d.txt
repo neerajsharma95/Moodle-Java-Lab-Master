@@ -1,0 +1,148 @@
+/*
+Task 4d: Create a Java program that demonstrates the use of different 
+access specifiers in java.
+
+Problem Description:
+---------------------------
+Create the class A such that it contains four variables with all the types 
+of access specifiers:
+
+- 'a' private integer variable
+- 'b' public integer variable 
+- 'c' protected integer variable
+- 'd' default integer variable
+- a method setA(int a) to set the value of the private variable a.
+- print() method to print the values of all the variables a,b,c,d
+
+
+Create a class B such that it contains an instance of class A and tries 
+to access the private variable through that instance. Also B should invoke 
+the print() method.
+
+Create a class AccessSpecifier  - 
+- This class contains the main() method and Scanner class object to take 
+the user input.
+
+Input format:
+---------------
+- The first line of input reads an integer value for a.
+- The second line of input reads an integer value for b.
+- The third line of input reads an integer value for c.
+- The fourth line of input reads an integer value for d. 
+
+Output format:
+----------------
+- The output displays the values of all the variables of class A as taken 
+from user input. 
+- Refer the sample test cases.
+
+
+Sample test cases:
+-----------------------
+Input = 
+-------
+10
+20
+30
+40
+
+Output = 
+--------
+10 20 30 40
+
+
+*/
+
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=10
+20
+30
+40
+output=10 20 30 40
+
+case=t2
+fail message="hidden"
+input=0
+0
+0
+0
+output=0 0 0 0
+
+case=t3
+input=-5
+-10
+-15
+-20
+output=-5 -10 -15 -20
+
+case=t4
+input=2147483647
+2147483647
+2147483647
+2147483647
+output= 2147483647 2147483647 2147483647 2147483647
+
+case=t5
+fail message="hidden"
+input=15
+-25
+35
+-45
+output=15 -25 35 -45
+
+// Source Code 
+
+import java.util.Scanner;
+
+class A {
+    private int a;
+    public int b;
+    protected int c;
+    int d;
+
+    void setA(int a) {
+        this.a = a;
+    }
+
+    void print() {
+        System.out.println(a + " " + b + " " + c + " " + d);
+    }
+}
+
+class B {
+    A x = new A();
+
+    void print1() {
+        x.print();
+
+     //   x.c=10; // This line will throw an error trying to access private variable
+       
+    }
+}
+
+class AccessSpecifier {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        A objA = new A();
+
+        int a = sc.nextInt();
+        objA.setA(a);
+
+        objA.b = sc.nextInt();
+
+        objA.c = sc.nextInt();
+
+        objA.d = sc.nextInt();
+
+        B y = new B();
+        y.x = objA;  // Assign the user-input object to B's object
+        y.print1();
+
+        sc.close();
+    }
+}
+

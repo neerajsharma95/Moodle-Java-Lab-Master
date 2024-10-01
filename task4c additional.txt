@@ -1,0 +1,164 @@
+/*
+Task 4 Additional Problem 3
+----------------------------
+- Create a class called Device that has the brand and model of the device 
+as attributes in a parameterized constructor.
+
+- Create another class called Smartphone that inherits from the Device 
+class and has the price of the device as an attribute in a parameterized 
+constructor.
+
+- Implement a program that uses a display() method to print the brand, 
+model, and price of the smartphone.
+
+Input format:
+---------------
+- The first line of the input consists of the brand of the smartphone as a 
+string.
+- The second line of the input consists of the model of the smartphone as 
+a string.
+- The third line of the input consists of the price of the smartphone as 
+an integer.
+
+Output format:
+----------------
+- The output displays the smartphone details.
+
+
+Sample test cases:
+-----------------------
+Input = 
+------
+Samsung
+Galaxy S21
+799
+
+Output = 
+-------
+Smartphone Details:
+Brand: Samsung
+Model: Galaxy S21
+Price: $799
+
+
+*/
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=Apple
+iPhone 13
+999
+output=
+Smartphone Details:
+Brand: Apple
+Model: iPhone 13
+Price: $999
+
+case=t2
+fail message="hidden"
+input=Google
+Pixel 6
+599
+output=
+Smartphone Details:
+Brand: Google
+Model: Pixel 6
+Price: $599
+
+case=t3
+fail message="hidden"
+input=Samsung
+Galaxy Z Fold 3
+1799
+output=
+Smartphone Details:
+Brand: Samsung
+Model: Galaxy Z Fold 3
+Price: $1799
+
+case=t4
+fail message="hidden"
+input=OnePlus
+Nord N200
+239
+output=
+Smartphone Details:
+Brand: OnePlus
+Model: Nord N200
+Price: $239
+
+case=t5
+fail message="hidden"
+input=Nokia
+3310
+50
+output=
+Smartphone Details:
+Brand: Nokia
+Model: 3310
+Price: $50
+
+// Source Code 
+
+import java.util.Scanner;
+
+class Device {
+    
+    private String brand;
+    private String model;
+
+    public Device(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+}
+
+class Smartphone extends Device {
+    private int price;
+
+    public Smartphone(String brand, String model, int price) {
+        super(brand, model);
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void display() {
+        System.out.println("\nSmartphone Details:");
+        System.out.println("Brand: " + getBrand());
+        System.out.println("Model: " + getModel());
+        System.out.println("Price: $" + getPrice());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //System.out.print("Enter the brand of the smartphone: ");
+        String brand = scanner.nextLine();
+
+        //System.out.print("Enter the model of the smartphone: ");
+        String model = scanner.nextLine();
+
+        //System.out.print("Enter the price of the smartphone: ");
+        int price = scanner.nextInt();
+
+        Smartphone smartphone = new Smartphone(brand, model, price);
+
+        smartphone.display();
+
+        scanner.close();
+    }
+}
