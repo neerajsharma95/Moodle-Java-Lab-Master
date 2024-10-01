@@ -1,0 +1,77 @@
+/*Write a JAVA program that implements final keyword
+
+Input format:
+-------------
+Read the integer input store in final variable
+Note: Try to change/modify the final variable value,it will show an error
+
+Output format:
+---------------
+print the output
+
+Sample test cases:
+------------------
+input=3
+output=3
+
+*/
+
+// Test Case
+
+case=t1
+input=3
+output=3
+
+case=t2
+fail message="hidden"
+input=-4
+output=-4
+
+case=t3
+fail message="hidden"
+input=+3
+output=3
+
+case=t4
+fail message="hidden"
+input=100
+output=100
+
+case=t5
+fail message="hidden"
+input=-100
+output=-100
+
+
+// Source Code 
+
+import java.util.Scanner;
+
+class FinalKeyword {
+    final int MAX_VALUE; 
+
+    
+    FinalKeyword(int value)
+    {
+        MAX_VALUE = value;
+    }
+
+    void myMethod()
+    {
+        System.out.println(MAX_VALUE);
+    }
+
+  
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+
+       // System.out.print("Enter a value for MAX_VALUE: ");
+        int value = scanner.nextInt(); 
+
+        FinalKeyword obj = new FinalKeyword(value);
+        obj.myMethod();
+
+        
+    }
+}

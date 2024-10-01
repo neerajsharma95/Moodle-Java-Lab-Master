@@ -1,0 +1,59 @@
+/* Write a Java program that reads an integer from the user, calculates its square,
+and then prints the result.(use static method)
+
+Input Format:
+-------------
+The program should prompt the user to enter an integer.
+
+Output Format:
+--------------
+print the square of the number.
+
+sample testcases:
+----------------
+input=5
+output=25
+*/
+
+// Test Cases
+
+case=t1
+input=5
+output=25
+
+case=t2
+fail message="hidden"
+input=-5
+output=25
+
+case=t3
+fail message="hidden"
+input=-2
+output=4
+
+case=t4
+fail message="hidden"
+input=-3
+output=9
+
+case=t5
+fail message="hidden"
+input=6
+output=36
+
+// Source Code
+
+import java.util.*;
+public class staticExample2 {
+    public static int square(int number) {
+        return number * number;
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner scan=new Scanner(System.in);
+        int a=scan.nextInt();
+        int result = staticExample2.square(a);
+        System.out.println(result);
+    }
+}

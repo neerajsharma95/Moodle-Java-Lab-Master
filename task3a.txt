@@ -1,0 +1,127 @@
+/*Write a java program that implements the concept of this keyword. 
+Note: This keyword is used to point to the instance variable instead of pointing to the local variable.
+
+Input format:
+----------------
+create a Java class, the class has: integer instance variable, Implement a main method to read two integer inputs:
+Store the first input in a local variable and second input in a instance variable then Print both variables in main method.
+
+The class has two methods:
+--------------------------------
+1. Method 1 that accepts local variable from the main method as a parameter, modifies its value to 90 within the method, 
+   and also instance variable value to 100 and print both the updated values of the variables.
+
+2. Method 2 without parameter that intializes its own local variable to 40, also prints the current instance variable value 
+and local variable value.
+
+Output format:
+---------------
+Refer the given test cases for exact output.
+
+Sample test cases:
+------------------
+input=2
+3
+output=
+Value of Instance variable in main  :3
+Value of Local variable in main  :2
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+*/
+
+// Test Cases
+
+case=t1
+input=2
+3
+output=
+Value of Instance variable in main  :3
+Value of Local variable in main  :2
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+case=t2
+fail message="hidden"
+input=-1
+-2
+output=
+Value of Instance variable in main  :-2
+Value of Local variable in main  :-1
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+case=t3
+fail message="hidden"
+input=-2
+3
+output=
+Value of Instance variable in main  :3
+Value of Local variable in main  :-2
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+case=t4
+fail message="hidden"
+input=8
+100
+output=Value of Instance variable in main  :100
+Value of Local variable in main  :8
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+case=t5
+fail message="hidden"
+input=100
+8
+output=Value of Instance variable in main  :8
+Value of Local variable in main  :100
+Value of Instance variable  :100
+Value of Local variable  :90
+Value of Instance variable :100
+Value of Local variable z:40
+
+
+
+// Write your code from next line 
+
+import java.util.*;
+class this_keyword 
+{ 
+
+int class_var;
+public static void main(String args[]) 
+{ 
+this_keyword  obj = new this_keyword (); 
+Scanner s=new Scanner(System.in);
+int x=s.nextInt();
+obj.class_var=s.nextInt();
+System.out.println("Value of Instance variable in main  :" +obj.class_var);
+System.out.println("Value of Local variable in main  :" + x);
+obj.method(x); 
+obj.method(); 
+}
+
+void method(int y) 
+{ 
+y=90;  // Local Variable
+class_var = 100; 
+System.out.println("Value of Instance variable  :" + this.class_var);  
+System.out.println("Value of Local variable  :" + y); 
+} 
+void method() 
+{ 
+int z = 40; // Local Variable
+System.out.println("Value of Instance variable :" + this.class_var); 
+System.out.println("Value of Local variable z:" + z); 
+}} 

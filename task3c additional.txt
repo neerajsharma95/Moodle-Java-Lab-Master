@@ -1,0 +1,71 @@
+/* Write a Java program that reads an integer from the user, calculates its square, and then prints the result.(use static class)
+
+Input Format:
+-------------
+The program should prompt the user to enter an integer.
+
+Output Format:
+--------------
+print the square of the number.
+
+Sample Testcases:
+-----------------
+input=9
+output=Square of 9 is: 81
+
+*/
+// Test Cases
+
+case=t1
+input=9
+output=Square of 9 is: 81
+
+case=t2
+fail message="hidden"
+input=-9
+output=Square of -9 is: 81
+
+case=t3
+fail message="hidden"
+input=8
+output=Square of 8 is: 64
+
+case=t4
+fail message="hidden"
+input=-8
+output=Square of -8 is: 64
+
+case=t5
+fail message="hidden"
+input=2
+output=Square of 2 is: 4
+
+// Source Code 
+
+import java.util.Scanner;
+
+public class staticExample3 
+{
+    static class StaticNestedClass 
+    {
+        int square(int number) 
+        {
+            return number * number;
+        }
+        void displayResult(int number)
+        {
+            int result = square(number);
+            System.out.println("Square of " + number + " is: " + result);
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        //System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        StaticNestedClass nestedObject = new StaticNestedClass();
+        nestedObject.displayResult(number);
+        scanner.close();
+    }
+}

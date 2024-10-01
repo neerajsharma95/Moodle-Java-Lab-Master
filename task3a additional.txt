@@ -1,0 +1,46 @@
+/* Write a Java program with a static variable and a static block.
+
+Input Format:
+-------------
+Declare a static variable and initialize (initialize as 10)in static block.
+
+Output Format:
+--------------
+print static variable in static block and in main method.
+
+sample testcases:
+-----------------
+input=10
+output=Static block initialized. Static variable value: 10
+Value of staticVariable in main method: 10
+
+*/
+
+
+// Test Cases
+
+case=t1
+input=10
+output=Static block initialized. Static variable value: 10
+Value of staticVariable in main method: 10
+
+
+// Source Code 
+
+public class staticExample1 {
+    // Static variable
+    static int staticVariable;
+
+    // Static block
+    static {
+        // Initialize static variable
+        staticVariable = 10;
+        System.out.println("Static block initialized. Static variable value: " + staticVariable);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        // Accessing static variable
+        System.out.println("Value of staticVariable in main method: " + staticVariable);
+    }
+}

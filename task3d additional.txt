@@ -1,0 +1,115 @@
+/* Write a Java program with concept of super(), calculate the volume of a box using a superclass and subclass.
+Input Format:
+-------------
+Create a class(Shape) will have a constructor that initializes dimensions and a method to display basic shape information.
+Create a subclass(Box) extends Shape and will calculate the volume of the box using the dimensions inherited from Shape.
+Create a Main class will create an instance of Box, which will use the constructors from both Shape and Box, and then calculate and display the volume.
+Output Format:
+--------------
+Print length, width, height, volume of the box
+Refer sample test cases for exact output.
+
+Sample Testcases:
+-----------------
+input=2.3
+6
+3
+output=Length = 2.3, Width = 6.0, Height = 3.0
+Volume of the box is: 41.4
+
+*/
+
+// Test Cases
+
+case=t1
+input=2.3
+6
+3
+output=Length = 2.3, Width = 6.0, Height = 3.0
+Volume of the box is: 41.4
+
+case=t2
+fail message="hidden"
+input=-2
+-3
+-4
+output=Length = -2.0, Width = -3.0, Height = -4.0
+Volume of the box is: -24.0
+
+case=t3
+fail message="hidden"
+input=2
+-2
+3
+output=Length = 2.0, Width = -2.0, Height = 3.0
+Volume of the box is: -12.0
+
+case=t4
+fail message="hidden"
+input=2
+3
+-4
+output=Length = 2.0, Width = 3.0, Height = -4.0
+Volume of the box is: -24.0
+
+case=t5
+fail message="hidden"
+input=-7
+9
+-0
+output=Length = -7.0, Width = 9.0, Height = -0.0
+Volume of the box is: 0.0
+
+// Source Code
+
+import java.util.*;
+class Shape
+{
+    double length;
+    double width;
+    double height;
+
+   
+    Shape(double length, double width, double height)
+    {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        System.out.println("Length = " + length + ", Width = " + width + ", Height = " + height);
+    }
+}
+
+
+class Box extends Shape 
+{
+    
+   
+    Box(double length, double width, double height) 
+    {
+        
+        super(length, width, height);
+    }
+
+    
+    double calculateVolume() 
+    {
+        return length * width * height;
+    }
+
+    
+    void displayVolume() {
+        double volume = calculateVolume();
+        System.out.println("Volume of the box is: " + volume);
+    }
+}
+
+public class superExample {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        double l=scan.nextDouble();
+        double w=scan.nextDouble();
+        double h=scan.nextDouble();
+        Box box = new Box(l,w,h);
+        box.displayVolume();
+    }
+}

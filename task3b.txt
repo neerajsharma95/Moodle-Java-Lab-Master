@@ -1,0 +1,97 @@
+/*Write a java program that implements the concepts of super keyword
+Input format:
+----------------
+Design a Java program consisting of a parent class and a subclass:
+
+The parent class should contain a single instance variable of integer type.
+
+The subclass class should contain a single instance variable of integer type.
+Implement a constructor in subclass that prompts the user to enter both parent and suclass variable values.
+
+Implement a method in SubClass that displays both the parent class variable and the subclass variable values.
+Invoke the method within the main method of SubClass.
+
+Output format:
+---------------
+Refer the given test cases for exact output.
+
+Sample test cases:
+------------------
+input=2
+3
+output=
+Accessing Parentclass variable using super keyword: 2
+Accessing subclass variable: 3
+*/
+
+// Test Cases
+
+case=t1
+fail message="hidden"
+input=
+-2
+3
+output=Accessing parentclass variable using super keyword: -2
+Accessing subclass variable: 3
+
+case=t2
+fail message="hidden"
+input=
+-2
+-3
+output=Accessing parentclass variable using super keyword: -2
+Accessing subclass variable: -3
+
+case=t3
+input=
+2
+3
+output=Accessing parentclass variable using super keyword: 2
+Accessing subclass variable: 3
+
+case=t4
+fail message="hidden"
+input=
+2
+3
+output=Accessing parentclass variable using super keyword: 2
+Accessing subclass variable: 3
+
+case=t5
+fail message="hidden"
+input=
+100
+5
+output=Accessing parentclass variable using super keyword: 100
+Accessing subclass variable: 5
+
+// Write your code from the next line 
+
+import java.util.Scanner;
+
+class Parentclass {
+    int num;
+}
+
+class superExample extends Parentclass {
+    int num1;
+
+    superExample() {
+        Scanner scanner = new Scanner(System.in);
+        //System.out.print("Enter value for SuperKeyword variable num: ");
+        
+        super.num=scanner.nextInt();
+        this.num1 = scanner.nextInt();
+        scanner.close();
+       }
+
+    void printNumber() {
+        System.out.println("Accessing parentclass variable using super keyword: " + super.num);
+        System.out.println("Accessing subclass variable: " + this.num1);
+    }
+
+    public static void main(String args[]) {
+        superExample obj = new superExample();
+        obj.printNumber();
+    }
+}
