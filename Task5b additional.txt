@@ -1,0 +1,85 @@
+/*Task 5 Additional Problem 2
+------------------------------
+Write a java program that reads the first n lines of a given text file, n 
+is taken based on user input.
+
+Input Format :
+----------------
+- The first line of input should read the integer value for number of lines 
+to be read.
+- The second line of input should read a string value for the file name from 
+where the data is to be read.
+
+Output Format : 
+---------------
+- The output should display n number of lines from the file based on the 
+user input.
+- Refer the sample test cases for input and output format specification.
+
+Sample test cases:
+------------------
+Input- 
+-------
+2
+Demo.txt
+
+Output-
+-------
+Renewable sources of energy are vital for sustainable development and 
+environmental protection.
+These include solar power, harnessing sunlight to generate electricity. Wind 
+energy, utilizing wind 
+
+
+*/
+
+// Test cases
+
+case=t1
+input=2
+Demo.txt
+output=
+Renewable sources of energy are vital for sustainable development and environmental protection.
+These include solar power, harnessing sunlight to generate electricity.Wind energy, utilizing wind 
+
+
+// Demo.txt
+
+Renewable sources of energy are vital for sustainable development and environmental protection.
+These include solar power, harnessing sunlight to generate electricity.Wind energy, utilizing wind 
+turbines to convert kinetic energy into electrical power. Hydroelectric energy, using flowing water
+to produce electricity etc. 
+
+// Source Code
+
+import java.io.*;
+import java.util.Scanner;
+public class ReadFirstN {
+    public static void main(String a[]) {
+        BufferedReader br = null;
+        String strLine = "";
+        Scanner scanner = new Scanner(System.in);
+
+        // System.out.print("Enter the number of lines to read: ");
+        int n = scanner.nextInt();
+        scanner.nextLine();  
+
+        
+       // System.out.print("Enter the file name: ");
+        String filePath = scanner.nextLine();
+
+        try {
+            LineNumberReader reader = new LineNumberReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
+            while (((strLine = reader.readLine()) != null) && reader.getLineNumber() <= n) {
+                System.out.println(strLine);
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        } catch (IOException e) {
+            System.err.println("Unable to read the file.");
+        } finally {
+            scanner.close();
+        }
+    }
+}

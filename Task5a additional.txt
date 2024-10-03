@@ -1,0 +1,82 @@
+/*Task 5 Additional Problem 1
+Write a java program to append text to an existing text file.
+
+Input Format :
+----------------
+- The first line of input should read the name of a file as - "File.txt"
+- The second line of input should read the data to be appended in the file 
+as user input. 
+
+Output Format : 
+---------------
+The output should display the contents of the file as after the append 
+operation.
+
+Sample test cases:
+------------------
+Input
+-----
+File.txt
+Robert Downey Jr.
+Output
+-------
+Data Appended
+Hello World.Robert Downey Jr.
+
+
+*/
+
+// Test Cases
+
+case=t1
+input=File.txt
+Robert Downey Jr.
+output=
+Data Appended
+Hello World.Robert Downey Jr.
+
+
+// File.txt
+
+Hello World.
+
+// Source Code
+
+import java.io.*;
+import java.util.Scanner;
+
+public class AppendToFile {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // System.out.print("Enter the name of the file: ");
+        String filename = scanner.nextLine();
+
+        //  System.out.print("Enter the data to append: ");
+        String data = scanner.nextLine();
+
+        StringBuilder sb = new StringBuilder();
+        String strLine = "";
+        try {
+            FileWriter fw = new FileWriter(filename, true);
+            // Appends the user input data to the file
+            fw.write(data + System.lineSeparator());
+            fw.close();
+
+            System.out.println("Data Appended");
+
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            // Read the file content
+            while ((strLine = br.readLine()) != null) {
+                sb.append(strLine);
+                sb.append(System.lineSeparator());
+                System.out.println(strLine);
+            }
+            br.close();
+        } catch (IOException ioe) {
+            System.err.println("IOException: " + ioe.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}

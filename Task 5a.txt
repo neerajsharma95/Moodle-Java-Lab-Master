@@ -1,0 +1,113 @@
+/*Task 5a.  Write a Java program that reads a file name from the user, 
+then display information about whether the file exists, whether the file 
+is readable, whether the file is writable, the type of file and the length 
+of the file in byte.
+
+Problem Description
+----------------------
+Create a Java Program to read a file name from the user. The program then 
+should display the different informations related to that file such as - 
+(i) Whether the file exists 
+(ii) Whether the file is readable
+(iii) Whether the file is writable
+(iv) Whether it's a file or a directory
+(v) Last modified date and time for the file
+
+Input format:
+----------------
+The input should accept the name of the file as "Demo.txt"
+
+Output format:
+---------------
+The output should display all the information related to the file as 
+mentioned above.Please refer to the sample test cases for input output
+format specification.
+
+Sample Test Case :
+-----------------
+Input - 
+------
+Demo.txt
+
+Output - 
+---------
+File exists
+File is readable
+File is writable
+It is a file
+The length of the file is 43 bytes
+
+*/
+// Test Cases
+
+case=t1
+input=Demo.txt
+output=
+File exists
+File is readable
+File is writable
+It is a file
+The length of the file is 43 bytes
+
+
+// Demo.txt
+
+Hello World !! 
+File Handling first program
+
+// Source Code
+
+import java.io.*;
+import java.util.*;
+import java.nio.file.*;
+import java.time.*;
+
+class FileInformation {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            //System.out.println("Enter a file name:");
+            String s = br.readLine();
+            File f = new File(s);
+
+            if (f.exists()) {
+                System.out.println("File exists");
+                if (f.canRead()) {
+                    System.out.println("File is readable");
+                }
+                if (f.canWrite()) {
+                    System.out.println("File is writable");
+                }
+                if (f.isFile()) {
+                    System.out.println("It is a file");
+                } else if (f.isDirectory()) {
+                    System.out.println("It is a directory");
+                }
+
+                System.out.println("The length of the file is " + f.length() + " bytes");
+                // System.out.println("Path: " + f.getAbsolutePath());
+
+                // Get last modified time
+               /* long lastModifiedMillis = f.lastModified();
+                Instant lastModifiedInstant = Instant.ofEpochMilli(lastModifiedMillis);
+                ZonedDateTime lastModifiedDateTime = ZonedDateTime.ofInstant(lastModifiedInstant, ZoneId.systemDefault()); */
+
+             /*   System.out.println("Last modified: " +
+                    lastModifiedDateTime.getDayOfMonth() + "/" +
+                    lastModifiedDateTime.getMonthValue() + "/" +
+                    lastModifiedDateTime.getYear());
+                System.out.println("Time: " +
+                    lastModifiedDateTime.getHour() + ":" +
+                    lastModifiedDateTime.getMinute() + ":" +
+                    lastModifiedDateTime.getSecond()); */
+                
+            } else {
+                System.out.println("File does not exist");
+            }
+
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}

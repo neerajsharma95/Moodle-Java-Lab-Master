@@ -1,0 +1,80 @@
+/*Task 5 Additional Problem 3
+------------------------------
+Write a java program that finds the longest word in a given text file.
+
+Input Format :
+----------------
+The input should read name of a file as - "Demo.txt"
+
+Output Format : 
+---------------
+The output should display the longest word in that file.
+Refer the given test cases for exact output.
+
+
+Sample test cases:
+------------------
+Input - 
+-----
+Demo.txt
+
+Output - 
+------
+Longest word: environmental
+
+
+*/
+
+// Test Cases
+
+case=t1
+input=Demo.txt
+output=
+Longest word: environmental
+
+
+// Demo.txt
+
+Renewable sources of energy are vital for sustainable development and environmental protection.
+These include solar power, harnessing sunlight to generate electricity. Wind energy, utilizing wind 
+turbines to convert kinetic energy into electrical power. Hydroelectric energy, using flowing water
+to produce electricity etc. 
+
+
+// Source Code 
+
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class LongestWord {
+    public static void main(String[] args) throws FileNotFoundException {
+        new LongestWord().findLongestWords();
+    }
+
+    public String findLongestWords() throws FileNotFoundException {
+        Scanner userInput = new Scanner(System.in);
+        
+       // System.out.print("Enter the name of the file: ");
+        String fileName = userInput.nextLine();
+
+        String longestWord = "";
+        String current;
+        Scanner fileScanner = new Scanner(new File(fileName));
+
+        while (fileScanner.hasNext()) {
+            current = fileScanner.next();
+            if (current.length() > longestWord.length()) {
+                longestWord = current;
+            }
+        }
+
+        System.out.println("\nLongest word: " + longestWord + "\n");
+
+        fileScanner.close();
+        userInput.close();
+        
+        return longestWord;
+    }
+}
+

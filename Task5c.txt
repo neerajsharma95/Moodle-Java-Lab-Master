@@ -1,0 +1,89 @@
+/*Task 5c. Write a java program that displays the number of characters, 
+lines and words in a text file.
+
+Input Format :
+----------------
+The input should read name of a file as - "Demo.txt"
+
+Output Format : 
+---------------
+- The output should display the number of characters , words and lines 
+in the file.
+- Refer the given test cases for exact output.
+
+Note: below is the content of Demo.txt file for your reference:
+---------------------------------------------------------------
+Renewable sources of energy are vital for sustainable development and environmental protection.
+These include solar power, harnessing sunlight to generate electricity.Wind energy, utilizing wind 
+turbines to convert kinetic energy into electrical power. Hydroelectric energy, using flowing water
+to produce electricity etc. 
+
+
+Sample test cases:
+------------------
+Input = 
+--------
+Demo.txt
+
+Output =
+---------
+The number of characters is 324
+The number of words is 43
+The number of lines is 3
+
+*/
+
+// Test Cases
+
+case=t1
+input=Demo.txt
+Output = 
+The number of characters is 324
+The number of words is 43
+The number of lines is 4
+
+// Demo.txt
+
+Hi
+How are You
+Welcome to GRIET
+
+// Source Code 
+
+import java.io.*;
+
+class WordCount {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       // System.out.println("Enter a file name");
+        String s = br.readLine();
+        int s1, ch = 0, ln=0, wd = 0;
+        
+        FileInputStream fin = new FileInputStream(s);
+
+        do {
+            s1 = fin.read();
+            
+            if (s1 != -1) {
+                ch++;
+                if ((char) s1 == ' ' || (char) s1 == '\n') {
+                    wd++;
+                }
+                if ((char) s1 == '\n') {
+                    ln++;
+                }
+            }
+        } while (s1 != -1);
+
+        // Increment the word count by 1 if the file doesn't end with a newline
+        if (ch > 0 && (char) s1 != '\n' && (char) s1 != ' ') {
+            wd++;
+            ln++;
+        }
+
+        System.out.println("The number of characters is " + ch);
+        System.out.println("The number of words is " + wd);
+        System.out.println("The number of lines is " + ln);
+        fin.close();
+    }
+}
